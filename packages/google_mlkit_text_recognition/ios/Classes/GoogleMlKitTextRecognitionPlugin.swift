@@ -214,19 +214,26 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
   /// in MLKit's pixel/top-left coordinate space so they can be matched by IoU.
   /// Returns empty array on failure — confidence stays nil, behavior degrades to pre-fork state.
   private func computeVisionConfidences(from imageData: [String: Any]) -> [VisionConfidenceRect] {
-    guard let cgImage = Self.cgImage(from: imageData) else { return [] }
+    guard let source = Self.sourceImage(from: imageData) else { return [] }
+    let cgImage = source.cgImage
     let request = VNRecognizeTextRequest()
     request.recognitionLevel = .accurate
     request.usesLanguageCorrection = false
-    let handler = VNImageRequestHandler(cgImage: cgImage, orientation: .up, options: [:])
+    // Feed Vision the same orientation MLKit applied so observation boxes land in
+    // MLKit's (upright/oriented) coordinate space. A mismatch here zeroes out IoU.
+    let handler = VNImageRequestHandler(cgImage: cgImage, orientation: source.orientation, options: [:])
     do {
       try handler.perform([request])
     } catch {
       return []
     }
     guard let observations = request.results else { return [] }
-    let width = CGFloat(cgImage.width)
-    let height = CGFloat(cgImage.height)
+    // After orientation correction Vision reports coords in the upright image, whose
+    // width/height are swapped for the 90°/270° (.left/.right) families.
+    let swapsAxes = source.orientation == .left || source.orientation == .right
+      || source.orientation == .leftMirrored || source.orientation == .rightMirrored
+    let width = CGFloat(swapsAxes ? cgImage.height : cgImage.width)
+    let height = CGFloat(swapsAxes ? cgImage.width : cgImage.height)
     return observations.compactMap { obs in
       let bbox = obs.boundingBox  // normalized, bottom-left origin
       let pixelRect = CGRect(
@@ -263,21 +270,48 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
 
   // MARK: - CGImage extraction from imageData
 
-  /// Mirrors VisionImage.visionImage(from:) but exposes the underlying CGImage
-  /// so Apple Vision can process the same pixels MLKit consumed.
-  private static func cgImage(from imageData: [String: Any]) -> CGImage? {
+  /// The pixels MLKit consumed plus the orientation MLKit applied to them.
+  private struct SourceImage {
+    let cgImage: CGImage
+    let orientation: CGImagePropertyOrientation
+  }
+
+  /// Mirrors VisionImage.visionImage(from:) but exposes the underlying CGImage and the
+  /// orientation so Apple Vision can process the same pixels in the same coordinate space.
+  /// - file: UIImage carries EXIF orientation and MLKit honors it, so Vision must too.
+  /// - bytes/bitmap: commons builds an upright VisionImage and ignores rotation metadata,
+  ///   so the matching upright (.up) keeps both engines aligned.
+  private static func sourceImage(from imageData: [String: Any]) -> SourceImage? {
     guard let imageType = imageData["type"] as? String else { return nil }
     switch imageType {
     case "file":
       guard let path = imageData["path"] as? String,
-            let ui = UIImage(contentsOfFile: path) else { return nil }
-      return ui.cgImage
+            let ui = UIImage(contentsOfFile: path),
+            let cg = ui.cgImage else { return nil }
+      return SourceImage(cgImage: cg, orientation: cgOrientation(ui.imageOrientation))
     case "bytes":
-      return cgImageFromBytes(imageData)
+      guard let cg = cgImageFromBytes(imageData) else { return nil }
+      return SourceImage(cgImage: cg, orientation: .up)
     case "bitmap":
-      return cgImageFromBitmap(imageData)
+      guard let cg = cgImageFromBitmap(imageData) else { return nil }
+      return SourceImage(cgImage: cg, orientation: .up)
     default:
       return nil
+    }
+  }
+
+  /// UIImage.Orientation and CGImagePropertyOrientation have different raw values; map explicitly.
+  private static func cgOrientation(_ orientation: UIImage.Orientation) -> CGImagePropertyOrientation {
+    switch orientation {
+    case .up: return .up
+    case .down: return .down
+    case .left: return .left
+    case .right: return .right
+    case .upMirrored: return .upMirrored
+    case .downMirrored: return .downMirrored
+    case .leftMirrored: return .leftMirrored
+    case .rightMirrored: return .rightMirrored
+    @unknown default: return .up
     }
   }
 
