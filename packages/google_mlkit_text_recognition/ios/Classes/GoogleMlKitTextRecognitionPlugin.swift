@@ -130,6 +130,7 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
           for element in line.elements {
             let elementConfidence = self.matchConfidence(
               for: element.frame,
+              text: element.text,
               in: visionConfidences
             )
             var elementData = self.addData(
@@ -145,7 +146,7 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
             if let c = elementConfidence { elementConfidences.append(c) }
           }
           let lineConfidence: NSNumber? = elementConfidences.isEmpty
-            ? self.matchConfidence(for: line.frame, in: visionConfidences).map { NSNumber(value: $0) }
+            ? self.matchConfidence(for: line.frame, text: line.text, in: visionConfidences).map { NSNumber(value: $0) }
             : NSNumber(value: elementConfidences.reduce(0, +) / Float(elementConfidences.count))
           var lineData = self.addData(
             cornerPoints: line.cornerPoints,
@@ -208,6 +209,7 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
   private struct VisionConfidenceRect {
     let rect: CGRect
     let confidence: Float
+    let text: String
   }
 
   /// Runs Apple's VNRecognizeTextRequest on the same image and returns observations
@@ -242,30 +244,64 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
         width: bbox.width * width,
         height: bbox.height * height
       )
-      let confidence = obs.topCandidates(1).first?.confidence ?? obs.confidence
-      return VisionConfidenceRect(rect: pixelRect, confidence: confidence)
+      let candidate = obs.topCandidates(1).first
+      let confidence = candidate?.confidence ?? obs.confidence
+      return VisionConfidenceRect(rect: pixelRect, confidence: confidence, text: candidate?.string ?? "")
     }
   }
 
-  /// Finds the Vision observation with highest IoU against the MLKit element/line frame.
-  /// Returns nil if no observation reaches the overlap threshold.
-  private func matchConfidence(for frame: CGRect, in rects: [VisionConfidenceRect]) -> Float? {
+  /// Finds the best Vision observation for an MLKit element/line frame.
+  ///
+  /// Geometry score is max(IoU, containment): containment (intersection / smaller area) rescues
+  /// the word-vs-line size mismatch, where an MLKit word box sits fully inside a wider Vision line
+  /// box and would otherwise score a low IoU. A letter-agreement bonus lets a match whose text
+  /// matches win over a purely geometric one. Returns nil when nothing clears the thresholds.
+  private func matchConfidence(for frame: CGRect, text: String, in rects: [VisionConfidenceRect]) -> Float? {
     guard !rects.isEmpty, frame.width > 0, frame.height > 0 else { return nil }
-    var bestIoU: CGFloat = 0
+    let frameArea = frame.width * frame.height
+    var bestScore: CGFloat = 0
     var bestConfidence: Float? = nil
+    var bestGeom: CGFloat = 0
+    var bestTextMatch = false
     for entry in rects {
       let intersection = frame.intersection(entry.rect)
       if intersection.isNull || intersection.isEmpty { continue }
       let interArea = intersection.width * intersection.height
-      let unionArea = frame.width * frame.height + entry.rect.width * entry.rect.height - interArea
-      guard unionArea > 0 else { continue }
-      let iou = interArea / unionArea
-      if iou > bestIoU {
-        bestIoU = iou
+      let rectArea = entry.rect.width * entry.rect.height
+      let unionArea = frameArea + rectArea - interArea
+      let iou = unionArea > 0 ? interArea / unionArea : 0
+      let minArea = min(frameArea, rectArea)
+      let containment = minArea > 0 ? interArea / minArea : 0
+      let geom = max(iou, containment)
+      let textMatch = textsAgree(text, entry.text)
+      let score = geom + (textMatch ? 1.0 : 0.0)
+      if score > bestScore {
+        bestScore = score
         bestConfidence = entry.confidence
+        bestGeom = geom
+        bestTextMatch = textMatch
       }
     }
-    return bestIoU >= 0.3 ? bestConfidence : nil
+    // Accept when letters agree with any real overlap, or geometry alone is strong.
+    if bestTextMatch && bestGeom >= 0.1 { return bestConfidence }
+    if bestGeom >= 0.3 { return bestConfidence }
+    return nil
+  }
+
+  /// True when one normalized string contains the other — handles MLKit's word-level text
+  /// sitting inside Vision's line-level candidate (and vice versa).
+  private func textsAgree(_ a: String, _ b: String) -> Bool {
+    let na = normalizedText(a)
+    let nb = normalizedText(b)
+    guard !na.isEmpty, !nb.isEmpty else { return false }
+    return na.contains(nb) || nb.contains(na)
+  }
+
+  /// Lowercase and strip everything but letters/digits so spacing and punctuation
+  /// differences between the two engines don't break the comparison.
+  private func normalizedText(_ s: String) -> String {
+    let scalars = s.lowercased().unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }
+    return String(String.UnicodeScalarView(scalars))
   }
 
   // MARK: - CGImage extraction from imageData
