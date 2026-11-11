@@ -1,3 +1,31 @@
+## 1.0.2
+
+* Update all plugin dependencies to their latest versions.
+
+## 1.0.1
+
+* Update all plugin dependencies to their latest versions.
+* Lower the minimum iOS deployment target in documentation from 15.5 to 15.0.
+
+## 1.0.0
+
+* Migrate iOS plugins from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`).
+* Update all plugin dependencies to their latest versions.
+* Update documentation.
+
+## 0.23.1
+
+* Update `google_mlkit_commons` dependency to `^0.13.0`.
+
+## 0.23.0
+
+* Update all dependencies to latest versions
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+## 0.22.0
+
+* Update all dependencies to latest versions.
+
 ## 0.21.0
 
 * Add support for Google's ML Kit GenAI APIs:

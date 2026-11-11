@@ -1,3 +1,37 @@
+## 0.7.2
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916).
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath.
+* Update `google_mlkit_commons` dependency to `^1.0.2`.
+
+## 0.7.1
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required.
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0.
+* Update `google_mlkit_commons` dependency to `^1.0.1`.
+
+## 0.7.0
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager.
+* Update `google_mlkit_commons` dependency to `^1.0.0`.
+* Update documentation.
+
+## 0.6.1
+
+* Update `google_mlkit_commons` dependency to `^0.13.0`.
+
+## 0.6.0
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+## 0.5.0
+
+* Migrate Android implementation from Java to Kotlin.
+* Migrate iOS implementation from Objective-C to Swift.
+* Bump Android compileSdk to 36 for AGP 9 compatibility.
+* Enable support for Apple Silicon simulator on iOS 26+.
+
 ## 0.4.2
 
 * Update Android native library `com.google.mlkit:face-mesh-detection` to 16.0.0-beta3

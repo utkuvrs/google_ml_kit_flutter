@@ -3,6 +3,846 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2026-11-10
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v1.0.2`](#google_ml_kit---v102)
+- [`google_mlkit_commons` - `v1.0.2`](#google_mlkit_commons---v102)
+- [`google_mlkit_barcode_scanning` - `v1.0.2`](#google_mlkit_barcode_scanning---v102)
+- [`google_mlkit_digital_ink_recognition` - `v1.0.2`](#google_mlkit_digital_ink_recognition---v102)
+- [`google_mlkit_document_scanner` - `v0.7.2`](#google_mlkit_document_scanner---v072)
+- [`google_mlkit_entity_extraction` - `v1.0.2`](#google_mlkit_entity_extraction---v102)
+- [`google_mlkit_face_detection` - `v1.0.2`](#google_mlkit_face_detection---v102)
+- [`google_mlkit_face_mesh_detection` - `v0.7.2`](#google_mlkit_face_mesh_detection---v072)
+- [`google_mlkit_genai_image_description` - `v0.4.2`](#google_mlkit_genai_image_description---v042)
+- [`google_mlkit_genai_prompt` - `v0.4.2`](#google_mlkit_genai_prompt---v042)
+- [`google_mlkit_genai_proofreading` - `v0.4.2`](#google_mlkit_genai_proofreading---v042)
+- [`google_mlkit_genai_rewriting` - `v0.4.2`](#google_mlkit_genai_rewriting---v042)
+- [`google_mlkit_genai_speech_recognition` - `v0.4.2`](#google_mlkit_genai_speech_recognition---v042)
+- [`google_mlkit_genai_summarization` - `v0.4.2`](#google_mlkit_genai_summarization---v042)
+- [`google_mlkit_image_labeling` - `v1.0.2`](#google_mlkit_image_labeling---v102)
+- [`google_mlkit_language_id` - `v1.0.2`](#google_mlkit_language_id---v102)
+- [`google_mlkit_object_detection` - `v1.0.2`](#google_mlkit_object_detection---v102)
+- [`google_mlkit_pose_detection` - `v1.0.2`](#google_mlkit_pose_detection---v102)
+- [`google_mlkit_selfie_segmentation` - `v1.0.2`](#google_mlkit_selfie_segmentation---v102)
+- [`google_mlkit_smart_reply` - `v1.0.2`](#google_mlkit_smart_reply---v102)
+- [`google_mlkit_subject_segmentation` - `v0.3.2`](#google_mlkit_subject_segmentation---v032)
+- [`google_mlkit_text_recognition` - `v1.0.2`](#google_mlkit_text_recognition---v102)
+- [`google_mlkit_translation` - `v1.0.2`](#google_mlkit_translation---v102)
+
+---
+
+#### `google_ml_kit` - `v1.0.2`
+
+* Update all plugin dependencies to their latest versions
+
+#### `google_mlkit_commons` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+
+#### `google_mlkit_barcode_scanning` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_digital_ink_recognition` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_document_scanner` - `v0.7.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+
+#### `google_mlkit_entity_extraction` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_face_detection` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_face_mesh_detection` - `v0.7.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_genai_image_description` - `v0.4.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_genai_prompt` - `v0.4.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_genai_proofreading` - `v0.4.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_genai_rewriting` - `v0.4.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_genai_speech_recognition` - `v0.4.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_genai_summarization` - `v0.4.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_image_labeling` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_language_id` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+
+#### `google_mlkit_object_detection` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_pose_detection` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_selfie_segmentation` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_smart_reply` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+
+#### `google_mlkit_subject_segmentation` - `v0.3.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_text_recognition` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+#### `google_mlkit_translation` - `v1.0.2`
+
+* Add `FlutterFramework` dependency to the Swift package manifest for Flutter Swift Package Manager compatibility (issue #916)
+* Bump Android Gradle Plugin (AGP) classpath to 9.1.0 to remove vulnerable transitive `netty` dependency from the build classpath
+* Update `google_mlkit_commons` dependency to `^1.0.2`
+
+## 2026-11-06
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v1.0.1`](#google_ml_kit---v101)
+- [`google_mlkit_commons` - `v1.0.1`](#google_mlkit_commons---v101)
+- [`google_mlkit_barcode_scanning` - `v1.0.1`](#google_mlkit_barcode_scanning---v101)
+- [`google_mlkit_digital_ink_recognition` - `v1.0.1`](#google_mlkit_digital_ink_recognition---v101)
+- [`google_mlkit_document_scanner` - `v0.7.1`](#google_mlkit_document_scanner---v071)
+- [`google_mlkit_entity_extraction` - `v1.0.1`](#google_mlkit_entity_extraction---v101)
+- [`google_mlkit_face_detection` - `v1.0.1`](#google_mlkit_face_detection---v101)
+- [`google_mlkit_face_mesh_detection` - `v0.7.1`](#google_mlkit_face_mesh_detection---v071)
+- [`google_mlkit_genai_image_description` - `v0.4.1`](#google_mlkit_genai_image_description---v041)
+- [`google_mlkit_genai_prompt` - `v0.4.1`](#google_mlkit_genai_prompt---v041)
+- [`google_mlkit_genai_proofreading` - `v0.4.1`](#google_mlkit_genai_proofreading---v041)
+- [`google_mlkit_genai_rewriting` - `v0.4.1`](#google_mlkit_genai_rewriting---v041)
+- [`google_mlkit_genai_speech_recognition` - `v0.4.1`](#google_mlkit_genai_speech_recognition---v041)
+- [`google_mlkit_genai_summarization` - `v0.4.1`](#google_mlkit_genai_summarization---v041)
+- [`google_mlkit_image_labeling` - `v1.0.1`](#google_mlkit_image_labeling---v101)
+- [`google_mlkit_language_id` - `v1.0.1`](#google_mlkit_language_id---v101)
+- [`google_mlkit_object_detection` - `v1.0.1`](#google_mlkit_object_detection---v101)
+- [`google_mlkit_pose_detection` - `v1.0.1`](#google_mlkit_pose_detection---v101)
+- [`google_mlkit_selfie_segmentation` - `v1.0.1`](#google_mlkit_selfie_segmentation---v101)
+- [`google_mlkit_smart_reply` - `v1.0.1`](#google_mlkit_smart_reply---v101)
+- [`google_mlkit_subject_segmentation` - `v0.3.1`](#google_mlkit_subject_segmentation---v031)
+- [`google_mlkit_text_recognition` - `v1.0.1`](#google_mlkit_text_recognition---v101)
+- [`google_mlkit_translation` - `v1.0.1`](#google_mlkit_translation---v101)
+
+---
+
+#### `google_ml_kit` - `v1.0.1`
+
+* Update all plugin dependencies to their latest versions
+* Lower the minimum iOS deployment target in documentation from 15.5 to 15.0
+
+#### `google_mlkit_commons` - `v1.0.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Remove `@objc` attributes from `GenericModelManager` and `VisionImage.visionImage(from:)` to avoid duplicate Objective-C runtime declarations across plugins
+
+#### `google_mlkit_barcode_scanning` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_digital_ink_recognition` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_document_scanner` - `v0.7.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+
+#### `google_mlkit_entity_extraction` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_face_detection` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_face_mesh_detection` - `v0.7.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_genai_image_description` - `v0.4.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_genai_prompt` - `v0.4.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_genai_proofreading` - `v0.4.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_genai_rewriting` - `v0.4.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_genai_speech_recognition` - `v0.4.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_genai_summarization` - `v0.4.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_image_labeling` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_language_id` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912)
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+
+#### `google_mlkit_object_detection` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_pose_detection` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_selfie_segmentation` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_smart_reply` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912)
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+
+#### `google_mlkit_subject_segmentation` - `v0.3.1`
+
+* Lower the minimum iOS deployment target in the Swift package manifest from 15.5 to 15.0, matching the upstream ML Kit SPM package, so the plugin builds with the default `flutter create` deployment target (15.0)
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_text_recognition` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (see issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+#### `google_mlkit_translation` - `v1.0.1`
+
+* Fix iOS build for apps installing the plugin from pub.dev: the Swift package manifest no longer references `google_mlkit_commons` via a relative path that does not exist in the published layout (issue #912). The small shared helpers are now bundled directly with the plugin, and no `google_mlkit_commons` Swift package dependency is required
+* Note: apps using Swift Package Manager for plugins must set their iOS deployment target to at least 15.0
+* Update `google_mlkit_commons` dependency to `^1.0.1`
+
+## 2026-11-05
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v1.0.0`](#google_ml_kit---v100)
+- [`google_mlkit_commons` - `v1.0.0`](#google_mlkit_commons---v100)
+- [`google_mlkit_barcode_scanning` - `v1.0.0`](#google_mlkit_barcode_scanning---v100)
+- [`google_mlkit_digital_ink_recognition` - `v1.0.0`](#google_mlkit_digital_ink_recognition---v100)
+- [`google_mlkit_document_scanner` - `v0.7.0`](#google_mlkit_document_scanner---v070)
+- [`google_mlkit_entity_extraction` - `v1.0.0`](#google_mlkit_entity_extraction---v100)
+- [`google_mlkit_face_detection` - `v1.0.0`](#google_mlkit_face_detection---v100)
+- [`google_mlkit_face_mesh_detection` - `v0.7.0`](#google_mlkit_face_mesh_detection---v070)
+- [`google_mlkit_genai_image_description` - `v0.4.0`](#google_mlkit_genai_image_description---v040)
+- [`google_mlkit_genai_prompt` - `v0.4.0`](#google_mlkit_genai_prompt---v040)
+- [`google_mlkit_genai_proofreading` - `v0.4.0`](#google_mlkit_genai_proofreading---v040)
+- [`google_mlkit_genai_rewriting` - `v0.4.0`](#google_mlkit_genai_rewriting---v040)
+- [`google_mlkit_genai_speech_recognition` - `v0.4.0`](#google_mlkit_genai_speech_recognition---v040)
+- [`google_mlkit_genai_summarization` - `v0.4.0`](#google_mlkit_genai_summarization---v040)
+- [`google_mlkit_image_labeling` - `v1.0.0`](#google_mlkit_image_labeling---v100)
+- [`google_mlkit_language_id` - `v1.0.0`](#google_mlkit_language_id---v100)
+- [`google_mlkit_object_detection` - `v1.0.0`](#google_mlkit_object_detection---v100)
+- [`google_mlkit_pose_detection` - `v1.0.0`](#google_mlkit_pose_detection---v100)
+- [`google_mlkit_selfie_segmentation` - `v1.0.0`](#google_mlkit_selfie_segmentation---v100)
+- [`google_mlkit_smart_reply` - `v1.0.0`](#google_mlkit_smart_reply---v100)
+- [`google_mlkit_subject_segmentation` - `v0.3.0`](#google_mlkit_subject_segmentation---v030)
+- [`google_mlkit_text_recognition` - `v1.0.0`](#google_mlkit_text_recognition---v100)
+- [`google_mlkit_translation` - `v1.0.0`](#google_mlkit_translation---v100)
+
+---
+
+#### `google_ml_kit` - `v1.0.0`
+
+* Migrate iOS plugins from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update all plugin dependencies to their latest versions
+* Update documentation
+
+#### `google_mlkit_commons` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Fix iOS model download never completing in `GenericModelManager`
+* Update documentation and package description
+
+#### `google_mlkit_barcode_scanning` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_digital_ink_recognition` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Fix iOS digital ink recognition score handling when the model omits scores
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_document_scanner` - `v0.7.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update documentation
+
+#### `google_mlkit_entity_extraction` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation and package description
+
+#### `google_mlkit_face_detection` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_face_mesh_detection` - `v0.7.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_genai_image_description` - `v0.4.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_genai_prompt` - `v0.4.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_genai_proofreading` - `v0.4.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_genai_rewriting` - `v0.4.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_genai_speech_recognition` - `v0.4.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_genai_summarization` - `v0.4.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_image_labeling` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_language_id` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update documentation
+
+#### `google_mlkit_object_detection` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_pose_detection` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_selfie_segmentation` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation and package description
+
+#### `google_mlkit_smart_reply` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update documentation
+
+#### `google_mlkit_subject_segmentation` - `v0.3.0`
+
+* Migrate iOS plugin stub from CocoaPods to Swift Package Manager
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation and package description
+
+#### `google_mlkit_text_recognition` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`), linking the base Latin text recognition library by default
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+#### `google_mlkit_translation` - `v1.0.0`
+
+* Migrate iOS plugin from CocoaPods to Swift Package Manager (`d-date/google-mlkit-swiftpm` `9.0.2`)
+* Update `google_mlkit_commons` dependency to `^1.0.0`
+* Update documentation
+
+## 2026-08-17
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v0.23.1`](#google_ml_kit---v0231)
+- [`google_mlkit_commons` - `v0.13.0`](#google_mlkit_commons---v0130)
+- [`google_mlkit_barcode_scanning` - `v0.16.1`](#google_mlkit_barcode_scanning---v0161)
+- [`google_mlkit_digital_ink_recognition` - `v0.16.1`](#google_mlkit_digital_ink_recognition---v0161)
+- [`google_mlkit_document_scanner` - `v0.6.1`](#google_mlkit_document_scanner---v061)
+- [`google_mlkit_entity_extraction` - `v0.17.1`](#google_mlkit_entity_extraction---v0171)
+- [`google_mlkit_face_detection` - `v0.15.1`](#google_mlkit_face_detection---v0151)
+- [`google_mlkit_face_mesh_detection` - `v0.6.1`](#google_mlkit_face_mesh_detection---v061)
+- [`google_mlkit_genai_image_description` - `v0.3.1`](#google_mlkit_genai_image_description---v031)
+- [`google_mlkit_genai_prompt` - `v0.3.1`](#google_mlkit_genai_prompt---v031)
+- [`google_mlkit_genai_proofreading` - `v0.3.1`](#google_mlkit_genai_proofreading---v031)
+- [`google_mlkit_genai_rewriting` - `v0.3.1`](#google_mlkit_genai_rewriting---v031)
+- [`google_mlkit_genai_speech_recognition` - `v0.3.1`](#google_mlkit_genai_speech_recognition---v031)
+- [`google_mlkit_genai_summarization` - `v0.3.1`](#google_mlkit_genai_summarization---v031)
+- [`google_mlkit_image_labeling` - `v0.16.1`](#google_mlkit_image_labeling---v0161)
+- [`google_mlkit_language_id` - `v0.15.1`](#google_mlkit_language_id---v0151)
+- [`google_mlkit_object_detection` - `v0.17.1`](#google_mlkit_object_detection---v0171)
+- [`google_mlkit_pose_detection` - `v0.16.1`](#google_mlkit_pose_detection---v0161)
+- [`google_mlkit_selfie_segmentation` - `v0.12.1`](#google_mlkit_selfie_segmentation---v0121)
+- [`google_mlkit_smart_reply` - `v0.15.1`](#google_mlkit_smart_reply---v0151)
+- [`google_mlkit_subject_segmentation` - `v0.2.1`](#google_mlkit_subject_segmentation---v021)
+- [`google_mlkit_text_recognition` - `v0.17.1`](#google_mlkit_text_recognition---v0171)
+- [`google_mlkit_translation` - `v0.15.1`](#google_mlkit_translation---v0151)
+
+---
+
+#### `google_ml_kit` - `v0.23.1`
+
+* Update all dependencies to latest versions
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_commons` - `v0.13.0`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_barcode_scanning` - `v0.16.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_digital_ink_recognition` - `v0.16.1`
+
+* Fix method channel name
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_document_scanner` - `v0.6.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_entity_extraction` - `v0.17.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_face_detection` - `v0.15.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_face_mesh_detection` - `v0.6.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_genai_image_description` - `v0.3.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_genai_prompt` - `v0.3.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_genai_proofreading` - `v0.3.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_genai_rewriting` - `v0.3.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_genai_speech_recognition` - `v0.3.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_genai_summarization` - `v0.3.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_image_labeling` - `v0.16.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_language_id` - `v0.15.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_object_detection` - `v0.17.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_pose_detection` - `v0.16.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_selfie_segmentation` - `v0.12.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_smart_reply` - `v0.15.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_subject_segmentation` - `v0.2.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_text_recognition` - `v0.17.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+#### `google_mlkit_translation` - `v0.15.1`
+
+* Migrate Android plugin build to AGP built-in Kotlin support (`compilerOptions`)
+* Bump minimum Flutter SDK constraint to >=3.44.0 and Dart SDK to ^3.12.0
+
+
+## 2026-07-07
+
+### Changes
+
+---
+
+Packages with changes:
+
+- [`google_ml_kit` - `v0.22.0`](#google_ml_kit---v0220)
+- [`google_mlkit_commons` - `v0.12.0`](#google_mlkit_commons---v0120)
+- [`google_mlkit_barcode_scanning` - `v0.15.0`](#google_mlkit_barcode_scanning---v0150)
+- [`google_mlkit_digital_ink_recognition` - `v0.15.0`](#google_mlkit_digital_ink_recognition---v0150)
+- [`google_mlkit_document_scanner` - `v0.5.0`](#google_mlkit_document_scanner---v050)
+- [`google_mlkit_entity_extraction` - `v0.16.0`](#google_mlkit_entity_extraction---v0160)
+- [`google_mlkit_face_detection` - `v0.14.0`](#google_mlkit_face_detection---v0140)
+- [`google_mlkit_face_mesh_detection` - `v0.5.0`](#google_mlkit_face_mesh_detection---v050)
+- [`google_mlkit_genai_image_description` - `v0.2.0`](#google_mlkit_genai_image_description---v020)
+- [`google_mlkit_genai_prompt` - `v0.2.0`](#google_mlkit_genai_prompt---v020)
+- [`google_mlkit_genai_proofreading` - `v0.2.0`](#google_mlkit_genai_proofreading---v020)
+- [`google_mlkit_genai_rewriting` - `v0.2.0`](#google_mlkit_genai_rewriting---v020)
+- [`google_mlkit_genai_speech_recognition` - `v0.2.0`](#google_mlkit_genai_speech_recognition---v020)
+- [`google_mlkit_genai_summarization` - `v0.2.0`](#google_mlkit_genai_summarization---v020)
+- [`google_mlkit_image_labeling` - `v0.15.0`](#google_mlkit_image_labeling---v0150)
+- [`google_mlkit_language_id` - `v0.14.0`](#google_mlkit_language_id---v0140)
+- [`google_mlkit_object_detection` - `v0.16.0`](#google_mlkit_object_detection---v0160)
+- [`google_mlkit_pose_detection` - `v0.15.0`](#google_mlkit_pose_detection---v0150)
+- [`google_mlkit_selfie_segmentation` - `v0.11.0`](#google_mlkit_selfie_segmentation---v0110)
+- [`google_mlkit_smart_reply` - `v0.14.0`](#google_mlkit_smart_reply---v0140)
+- [`google_mlkit_subject_segmentation` - `v0.1.0`](#google_mlkit_subject_segmentation---v010)
+- [`google_mlkit_text_recognition` - `v0.16.0`](#google_mlkit_text_recognition---v0160)
+- [`google_mlkit_translation` - `v0.14.0`](#google_mlkit_translation---v0140)
+
+---
+
+#### `google_ml_kit` - `v0.22.0`
+
+* Update all dependencies to latest versions
+
+#### `google_mlkit_commons` - `v0.12.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Optimize InputImage conversion and enhance image format validation
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_barcode_scanning` - `v0.15.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_digital_ink_recognition` - `v0.15.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_document_scanner` - `v0.5.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS plugin stub from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+* Note: iOS support is still not available
+
+#### `google_mlkit_entity_extraction` - `v0.16.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_face_detection` - `v0.14.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_face_mesh_detection` - `v0.5.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_genai_image_description` - `v0.2.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_genai_prompt` - `v0.2.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_genai_proofreading` - `v0.2.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_genai_rewriting` - `v0.2.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_genai_speech_recognition` - `v0.2.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_genai_summarization` - `v0.2.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_image_labeling` - `v0.15.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_language_id` - `v0.14.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_object_detection` - `v0.16.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_pose_detection` - `v0.15.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_selfie_segmentation` - `v0.11.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_smart_reply` - `v0.14.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_subject_segmentation` - `v0.1.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_text_recognition` - `v0.16.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
+#### `google_mlkit_translation` - `v0.14.0`
+
+* Migrate Android implementation from Java to Kotlin
+* Migrate iOS implementation from Objective-C to Swift
+* Bump Android compileSdk to 36 for AGP 9 compatibility
+* Enable support for Apple Silicon simulator on iOS 26+
+
 ## 2026-02-03
 
 ### Changes
