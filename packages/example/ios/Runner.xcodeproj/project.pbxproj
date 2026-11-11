@@ -8,27 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
+		1A37462F77D905D2FF2C95DC /* PredictOnDevice_resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D295FDD2B3D052CE2C18A8BF /* PredictOnDevice_resource.bundle */; };
+		1B14B56C7FEF4B8F588C594B /* MLKitPoseDetectionCommonResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD57F9FF296C9CBC6EE9E5C2 /* MLKitPoseDetectionCommonResources.bundle */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		3E600CC9774A81EF8E5E3B75 /* MLKitSegmentationCommonResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D29CB7D06A484BED41E2248 /* MLKitSegmentationCommonResources.bundle */; };
+		3F06A134FDA25C01CCAA04B4 /* MLKitPoseDetectionFastResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 67BFFEBB011293D7DE22715B /* MLKitPoseDetectionFastResources.bundle */; };
+		59228F4A1111A8B508992DA8 /* PredictOnDeviceResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEC8EA45954DD19FC7780402 /* PredictOnDeviceResource.bundle */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
+		74C97CED35F3243DEAF5E521 /* MLKitObjectDetectionCommonResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38249E73DDAA2FE562FEF84B /* MLKitObjectDetectionCommonResources.bundle */; };
 		78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 78A3181F2AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage */; };
+		79798AEBB3545E3E7D889613 /* MLKitXenoResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF8A58959EF3B8CA0612D576 /* MLKitXenoResources.bundle */; };
+		8E1F6D8642E24FFB300DC9EA /* GoogleMVFaceDetectorResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1A2A72646541651B5CFFB5F /* GoogleMVFaceDetectorResources.bundle */; };
+		94BC3382906770B6F5672EB5 /* MLKitPoseDetectionAccurateResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04E5E4DF33B8A06031428198 /* MLKitPoseDetectionAccurateResources.bundle */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-		8E1F6D8642E24FFB300DC9EA /* GoogleMVFaceDetectorResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F1A2A72646541651B5CFFB5F /* GoogleMVFaceDetectorResources.bundle */; };
-		B450C60FB65C5C19B5783B4F /* LatinOCRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE02B2E4BD2EA4C510B35CE4 /* LatinOCRResources.bundle */; };
 		9B2E77CFAD83A633F2C9AFF3 /* MLKitDigitalInkRecognition_resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0AA031C7739255EF2C92D0 /* MLKitDigitalInkRecognition_resource.bundle */; };
-		F5764F0BFCEA9CE20FF4BF6A /* MLKitImageLabelingResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6F53A2ECCF58DD165854159 /* MLKitImageLabelingResources.bundle */; };
-		74C97CED35F3243DEAF5E521 /* MLKitObjectDetectionCommonResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 38249E73DDAA2FE562FEF84B /* MLKitObjectDetectionCommonResources.bundle */; };
-		F5227809E567AF9368C37CAD /* MLKitObjectDetectionResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 74B823B3639C534739443E21 /* MLKitObjectDetectionResources.bundle */; };
-		94BC3382906770B6F5672EB5 /* MLKitPoseDetectionAccurateResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04E5E4DF33B8A06031428198 /* MLKitPoseDetectionAccurateResources.bundle */; };
-		1B14B56C7FEF4B8F588C594B /* MLKitPoseDetectionCommonResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CD57F9FF296C9CBC6EE9E5C2 /* MLKitPoseDetectionCommonResources.bundle */; };
-		3F06A134FDA25C01CCAA04B4 /* MLKitPoseDetectionFastResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 67BFFEBB011293D7DE22715B /* MLKitPoseDetectionFastResources.bundle */; };
-		3E600CC9774A81EF8E5E3B75 /* MLKitSegmentationCommonResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4D29CB7D06A484BED41E2248 /* MLKitSegmentationCommonResources.bundle */; };
-		CA50A6EF74EED61EF83F6745 /* MLKitSegmentationSelfieResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE737E387B638A3F676FC7DF /* MLKitSegmentationSelfieResources.bundle */; };
+		B450C60FB65C5C19B5783B4F /* LatinOCRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BE02B2E4BD2EA4C510B35CE4 /* LatinOCRResources.bundle */; };
 		B4661A3203C3563D9756C166 /* MLKitTranslate_resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4E9024F913ECDAF042920C79 /* MLKitTranslate_resource.bundle */; };
-		79798AEBB3545E3E7D889613 /* MLKitXenoResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CF8A58959EF3B8CA0612D576 /* MLKitXenoResources.bundle */; };
-		59228F4A1111A8B508992DA8 /* PredictOnDeviceResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEC8EA45954DD19FC7780402 /* PredictOnDeviceResource.bundle */; };
-		1A37462F77D905D2FF2C95DC /* PredictOnDevice_resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D295FDD2B3D052CE2C18A8BF /* PredictOnDevice_resource.bundle */; };
+		CA50A6EF74EED61EF83F6745 /* MLKitSegmentationSelfieResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DE737E387B638A3F676FC7DF /* MLKitSegmentationSelfieResources.bundle */; };
+		E48B0173FF8B75B661037B7F /* libPods-Runner.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E93461D44BFCBDF447E923DC /* libPods-Runner.a */; };
+		F5227809E567AF9368C37CAD /* MLKitObjectDetectionResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 74B823B3639C534739443E21 /* MLKitObjectDetectionResources.bundle */; };
+		F5764F0BFCEA9CE20FF4BF6A /* MLKitImageLabelingResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A6F53A2ECCF58DD165854159 /* MLKitImageLabelingResources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,14 +46,22 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04E5E4DF33B8A06031428198 /* MLKitPoseDetectionAccurateResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitPoseDetectionAccurateResources.bundle; sourceTree = "<group>"; };
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
+		38249E73DDAA2FE562FEF84B /* MLKitObjectDetectionCommonResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitObjectDetectionCommonResources.bundle; sourceTree = "<group>"; };
 		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
+		4D29CB7D06A484BED41E2248 /* MLKitSegmentationCommonResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitSegmentationCommonResources.bundle; sourceTree = "<group>"; };
+		4E9024F913ECDAF042920C79 /* MLKitTranslate_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitTranslate_resource.bundle; sourceTree = "<group>"; };
+		5E0AA031C7739255EF2C92D0 /* MLKitDigitalInkRecognition_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitDigitalInkRecognition_resource.bundle; sourceTree = "<group>"; };
+		67BFFEBB011293D7DE22715B /* MLKitPoseDetectionFastResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitPoseDetectionFastResources.bundle; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
 		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		74B823B3639C534739443E21 /* MLKitObjectDetectionResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitObjectDetectionResources.bundle; sourceTree = "<group>"; };
 		78E0A7A72DC9AD7400C4905E /* FlutterGeneratedPluginSwiftPackage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = FlutterGeneratedPluginSwiftPackage; path = Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
 		7AFA3C8F1D35360C0083082F /* Profile.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Profile.xcconfig; path = Flutter/Profile.xcconfig; sourceTree = "<group>"; };
+		89706E867DA535EE182163C4 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
 		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
 		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,21 +69,17 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F1A2A72646541651B5CFFB5F /* GoogleMVFaceDetectorResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = GoogleMVFaceDetectorResources.bundle; sourceTree = "<group>"; };
-		BE02B2E4BD2EA4C510B35CE4 /* LatinOCRResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = LatinOCRResources.bundle; sourceTree = "<group>"; };
-		5E0AA031C7739255EF2C92D0 /* MLKitDigitalInkRecognition_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitDigitalInkRecognition_resource.bundle; sourceTree = "<group>"; };
+		9B24139CA3A5A846C790C311 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		A6F53A2ECCF58DD165854159 /* MLKitImageLabelingResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitImageLabelingResources.bundle; sourceTree = "<group>"; };
-		38249E73DDAA2FE562FEF84B /* MLKitObjectDetectionCommonResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitObjectDetectionCommonResources.bundle; sourceTree = "<group>"; };
-		74B823B3639C534739443E21 /* MLKitObjectDetectionResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitObjectDetectionResources.bundle; sourceTree = "<group>"; };
-		04E5E4DF33B8A06031428198 /* MLKitPoseDetectionAccurateResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitPoseDetectionAccurateResources.bundle; sourceTree = "<group>"; };
+		BE02B2E4BD2EA4C510B35CE4 /* LatinOCRResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = LatinOCRResources.bundle; sourceTree = "<group>"; };
 		CD57F9FF296C9CBC6EE9E5C2 /* MLKitPoseDetectionCommonResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitPoseDetectionCommonResources.bundle; sourceTree = "<group>"; };
-		67BFFEBB011293D7DE22715B /* MLKitPoseDetectionFastResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitPoseDetectionFastResources.bundle; sourceTree = "<group>"; };
-		4D29CB7D06A484BED41E2248 /* MLKitSegmentationCommonResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitSegmentationCommonResources.bundle; sourceTree = "<group>"; };
-		DE737E387B638A3F676FC7DF /* MLKitSegmentationSelfieResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitSegmentationSelfieResources.bundle; sourceTree = "<group>"; };
-		4E9024F913ECDAF042920C79 /* MLKitTranslate_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitTranslate_resource.bundle; sourceTree = "<group>"; };
-		CF8A58959EF3B8CA0612D576 /* MLKitXenoResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitXenoResources.bundle; sourceTree = "<group>"; };
 		CEC8EA45954DD19FC7780402 /* PredictOnDeviceResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = PredictOnDeviceResource.bundle; sourceTree = "<group>"; };
+		CF8A58959EF3B8CA0612D576 /* MLKitXenoResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitXenoResources.bundle; sourceTree = "<group>"; };
 		D295FDD2B3D052CE2C18A8BF /* PredictOnDevice_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = PredictOnDevice_resource.bundle; sourceTree = "<group>"; };
+		DE737E387B638A3F676FC7DF /* MLKitSegmentationSelfieResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = MLKitSegmentationSelfieResources.bundle; sourceTree = "<group>"; };
+		E93461D44BFCBDF447E923DC /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA0B3E66A1C5E172FA8CEC85 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		F1A2A72646541651B5CFFB5F /* GoogleMVFaceDetectorResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cbundle; path = GoogleMVFaceDetectorResources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +88,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				78A318202AECB46A00862997 /* FlutterGeneratedPluginSwiftPackage in Frameworks */,
+				E48B0173FF8B75B661037B7F /* libPods-Runner.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		55173D0837960B1C3732427E /* mlkit_bundles */ = {
+			isa = PBXGroup;
+			children = (
+				F1A2A72646541651B5CFFB5F /* GoogleMVFaceDetectorResources.bundle */,
+				BE02B2E4BD2EA4C510B35CE4 /* LatinOCRResources.bundle */,
+				5E0AA031C7739255EF2C92D0 /* MLKitDigitalInkRecognition_resource.bundle */,
+				A6F53A2ECCF58DD165854159 /* MLKitImageLabelingResources.bundle */,
+				38249E73DDAA2FE562FEF84B /* MLKitObjectDetectionCommonResources.bundle */,
+				74B823B3639C534739443E21 /* MLKitObjectDetectionResources.bundle */,
+				04E5E4DF33B8A06031428198 /* MLKitPoseDetectionAccurateResources.bundle */,
+				CD57F9FF296C9CBC6EE9E5C2 /* MLKitPoseDetectionCommonResources.bundle */,
+				67BFFEBB011293D7DE22715B /* MLKitPoseDetectionFastResources.bundle */,
+				4D29CB7D06A484BED41E2248 /* MLKitSegmentationCommonResources.bundle */,
+				DE737E387B638A3F676FC7DF /* MLKitSegmentationSelfieResources.bundle */,
+				4E9024F913ECDAF042920C79 /* MLKitTranslate_resource.bundle */,
+				CF8A58959EF3B8CA0612D576 /* MLKitXenoResources.bundle */,
+				CEC8EA45954DD19FC7780402 /* PredictOnDeviceResource.bundle */,
+				D295FDD2B3D052CE2C18A8BF /* PredictOnDevice_resource.bundle */,
+			);
+			path = mlkit_bundles;
+			sourceTree = "<group>";
+		};
 		9740EEB11CF90186004384FC /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,7 +136,9 @@
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
-				55173D0837960B1C3732427E /* MLKit Bundles */,
+				55173D0837960B1C3732427E /* mlkit_bundles */,
+				E92A2996F7DD9EE3270270E1 /* Pods */,
+				AA7D4986FF8590C328E5BE02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,26 +165,23 @@
 			path = Runner;
 			sourceTree = "<group>";
 		};
-		55173D0837960B1C3732427E /* MLKit Bundles */ = {
+		AA7D4986FF8590C328E5BE02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F1A2A72646541651B5CFFB5F /* GoogleMVFaceDetectorResources.bundle */,
-				BE02B2E4BD2EA4C510B35CE4 /* LatinOCRResources.bundle */,
-				5E0AA031C7739255EF2C92D0 /* MLKitDigitalInkRecognition_resource.bundle */,
-				A6F53A2ECCF58DD165854159 /* MLKitImageLabelingResources.bundle */,
-				38249E73DDAA2FE562FEF84B /* MLKitObjectDetectionCommonResources.bundle */,
-				74B823B3639C534739443E21 /* MLKitObjectDetectionResources.bundle */,
-				04E5E4DF33B8A06031428198 /* MLKitPoseDetectionAccurateResources.bundle */,
-				CD57F9FF296C9CBC6EE9E5C2 /* MLKitPoseDetectionCommonResources.bundle */,
-				67BFFEBB011293D7DE22715B /* MLKitPoseDetectionFastResources.bundle */,
-				4D29CB7D06A484BED41E2248 /* MLKitSegmentationCommonResources.bundle */,
-				DE737E387B638A3F676FC7DF /* MLKitSegmentationSelfieResources.bundle */,
-				4E9024F913ECDAF042920C79 /* MLKitTranslate_resource.bundle */,
-				CF8A58959EF3B8CA0612D576 /* MLKitXenoResources.bundle */,
-				CEC8EA45954DD19FC7780402 /* PredictOnDeviceResource.bundle */,
-				D295FDD2B3D052CE2C18A8BF /* PredictOnDevice_resource.bundle */,
+				E93461D44BFCBDF447E923DC /* libPods-Runner.a */,
 			);
-			path = mlkit_bundles;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E92A2996F7DD9EE3270270E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89706E867DA535EE182163C4 /* Pods-Runner.debug.xcconfig */,
+				EA0B3E66A1C5E172FA8CEC85 /* Pods-Runner.release.xcconfig */,
+				9B24139CA3A5A846C790C311 /* Pods-Runner.profile.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
+				CCFA2EA40B4636CA97FA894F /* [CP] Check Pods Manifest.lock */,
 				9740EEB61CF901F6004384FC /* Run Script */,
 				A7B8C9D0E1F2A3B4C5D6E7F8 /* SwiftLint */,
 				97C146EA1CF9000F007C117D /* Sources */,
@@ -171,6 +199,7 @@
 				97C146EC1CF9000F007C117D /* Resources */,
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
+				F408A44BF4016BDB40161163 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -210,7 +239,7 @@
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage" */,
+				781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "FlutterGeneratedPluginSwiftPackage" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -295,6 +324,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\nif ! command -v swiftlint &>/dev/null; then\n    echo \"warning: swiftlint not found. Install with: brew install swiftlint\"\n    exit 0\nfi\nREPO_ROOT=\"${SRCROOT}/../../..\"\ncd \"$REPO_ROOT\" && swiftlint lint --fix && swiftlint lint --strict --config \"$REPO_ROOT/.swiftlint.yml\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCFA2EA40B4636CA97FA894F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F408A44BF4016BDB40161163 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -404,7 +472,6 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
-					
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,7 +617,6 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
-					
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -578,7 +644,6 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
-					
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "$(PRODUCT_BUNDLE_IDENTIFIER)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -614,7 +679,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage" */ = {
+		781AD8BC2B33823900A9FFBB /* XCLocalSwiftPackageReference "FlutterGeneratedPluginSwiftPackage" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Flutter/ephemeral/Packages/FlutterGeneratedPluginSwiftPackage;
 		};
