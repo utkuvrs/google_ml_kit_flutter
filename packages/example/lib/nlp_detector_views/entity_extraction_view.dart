@@ -94,7 +94,8 @@ class _EntityExtractionViewState extends State<EntityExtractionView> {
                   itemCount: _entities.length,
                   itemBuilder: (context, index) => ExpansionTile(
                     title: Text(_entities[index].text),
-                    children: _entities[index].entities
+                    children: _entities[index]
+                        .entities
                         .map((e) => Text(e.toString()))
                         .toList(),
                   ),

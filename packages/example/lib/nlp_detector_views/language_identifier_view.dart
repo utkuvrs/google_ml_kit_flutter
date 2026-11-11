@@ -87,8 +87,8 @@ class _LanguageIdentifierViewState extends State<LanguageIdentifierView> {
     if (_controller.text == '') return;
     String error;
     try {
-      final possibleLanguages = await _languageIdentifier
-          .identifyPossibleLanguages(_controller.text);
+      final possibleLanguages =
+          await _languageIdentifier.identifyPossibleLanguages(_controller.text);
       setState(() {
         _identifiedLanguages = possibleLanguages;
       });

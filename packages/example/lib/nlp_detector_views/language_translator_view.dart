@@ -143,32 +143,32 @@ class _LanguageTranslatorViewState extends State<LanguageTranslatorView> {
   }
 
   Widget _buildDropdown(bool isTarget) => DropdownButton<String>(
-    value: (isTarget ? _targetLanguage : _sourceLanguage).bcpCode,
-    icon: const Icon(Icons.arrow_downward),
-    elevation: 16,
-    style: const TextStyle(color: Colors.blue),
-    underline: Container(height: 2, color: Colors.blue),
-    onChanged: (String? code) {
-      if (code != null) {
-        final lang = BCP47Code.fromRawValue(code);
-        if (lang != null) {
-          setState(() {
-            isTarget ? _targetLanguage = lang : _sourceLanguage = lang;
-            _onDeviceTranslator = OnDeviceTranslator(
-              sourceLanguage: _sourceLanguage,
-              targetLanguage: _targetLanguage,
-            );
-          });
-        }
-      }
-    },
-    items: TranslateLanguage.values.map<DropdownMenuItem<String>>((lang) {
-      return DropdownMenuItem<String>(
-        value: lang.bcpCode,
-        child: Text(lang.name),
+        value: (isTarget ? _targetLanguage : _sourceLanguage).bcpCode,
+        icon: const Icon(Icons.arrow_downward),
+        elevation: 16,
+        style: const TextStyle(color: Colors.blue),
+        underline: Container(height: 2, color: Colors.blue),
+        onChanged: (String? code) {
+          if (code != null) {
+            final lang = BCP47Code.fromRawValue(code);
+            if (lang != null) {
+              setState(() {
+                isTarget ? _targetLanguage = lang : _sourceLanguage = lang;
+                _onDeviceTranslator = OnDeviceTranslator(
+                  sourceLanguage: _sourceLanguage,
+                  targetLanguage: _targetLanguage,
+                );
+              });
+            }
+          }
+        },
+        items: TranslateLanguage.values.map<DropdownMenuItem<String>>((lang) {
+          return DropdownMenuItem<String>(
+            value: lang.bcpCode,
+            child: Text(lang.name),
+          );
+        }).toList(),
       );
-    }).toList(),
-  );
 
   Future<void> _downloadSourceModel() async {
     Toast().show(

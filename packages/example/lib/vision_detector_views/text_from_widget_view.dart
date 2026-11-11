@@ -96,9 +96,8 @@ class _TextFromWidgetViewState extends State<TextFromWidgetView> {
 
     try {
       // Get the RenderObject from the GlobalKey
-      final RenderRepaintBoundary? boundary =
-          _widgetKey.currentContext?.findRenderObject()
-              as RenderRepaintBoundary?;
+      final RenderRepaintBoundary? boundary = _widgetKey.currentContext
+          ?.findRenderObject() as RenderRepaintBoundary?;
 
       if (boundary == null) {
         setState(() {

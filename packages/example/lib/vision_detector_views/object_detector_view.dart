@@ -93,28 +93,27 @@ class _ObjectDetectorView extends State<ObjectDetectorView> {
   }
 
   Widget _buildDropdown() => DropdownButton<int>(
-    value: _option,
-    icon: const Icon(Icons.arrow_downward),
-    elevation: 16,
-    style: const TextStyle(color: Colors.blue),
-    underline: Container(height: 2, color: Colors.blue),
-    onChanged: (int? option) {
-      if (option != null) {
-        setState(() {
-          _option = option;
-          _initializeDetector();
-        });
-      }
-    },
-    items: List<int>.generate(_options.length, (i) => i)
-        .map<DropdownMenuItem<int>>((option) {
+        value: _option,
+        icon: const Icon(Icons.arrow_downward),
+        elevation: 16,
+        style: const TextStyle(color: Colors.blue),
+        underline: Container(height: 2, color: Colors.blue),
+        onChanged: (int? option) {
+          if (option != null) {
+            setState(() {
+              _option = option;
+              _initializeDetector();
+            });
+          }
+        },
+        items: List<int>.generate(_options.length, (i) => i)
+            .map<DropdownMenuItem<int>>((option) {
           return DropdownMenuItem<int>(
             value: option,
             child: Text(_options.keys.toList()[option]),
           );
-        })
-        .toList(),
-  );
+        }).toList(),
+      );
 
   void _onScreenModeChanged(DetectorViewMode mode) {
     switch (mode) {

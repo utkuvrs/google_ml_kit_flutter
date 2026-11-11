@@ -67,29 +67,28 @@ class _TextRecognizerViewState extends State<TextRecognizerView> {
   }
 
   Widget _buildDropdown() => DropdownButton<TextRecognitionScript>(
-    value: _script,
-    icon: const Icon(Icons.arrow_downward),
-    elevation: 16,
-    style: const TextStyle(color: Colors.blue),
-    underline: Container(height: 2, color: Colors.blue),
-    onChanged: (TextRecognitionScript? script) {
-      if (script != null) {
-        setState(() {
-          _script = script;
-          _textRecognizer.close();
-          _textRecognizer = TextRecognizer(script: _script);
-        });
-      }
-    },
-    items: TextRecognitionScript.values
-        .map<DropdownMenuItem<TextRecognitionScript>>((script) {
+        value: _script,
+        icon: const Icon(Icons.arrow_downward),
+        elevation: 16,
+        style: const TextStyle(color: Colors.blue),
+        underline: Container(height: 2, color: Colors.blue),
+        onChanged: (TextRecognitionScript? script) {
+          if (script != null) {
+            setState(() {
+              _script = script;
+              _textRecognizer.close();
+              _textRecognizer = TextRecognizer(script: _script);
+            });
+          }
+        },
+        items: TextRecognitionScript.values
+            .map<DropdownMenuItem<TextRecognitionScript>>((script) {
           return DropdownMenuItem<TextRecognitionScript>(
             value: script,
             child: Text(script.name),
           );
-        })
-        .toList(),
-  );
+        }).toList(),
+      );
 
   Future<void> _processImage(InputImage inputImage) async {
     if (!_canProcess) return;

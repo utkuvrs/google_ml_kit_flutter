@@ -129,24 +129,25 @@ class _DigitalInkViewState extends State<DigitalInkView> {
   }
 
   Widget _buildDropdown() => DropdownButton<String>(
-    value: _language,
-    icon: const Icon(Icons.arrow_downward),
-    elevation: 16,
-    style: const TextStyle(color: Colors.blue),
-    underline: Container(height: 2, color: Colors.blue),
-    onChanged: (String? lang) {
-      if (lang != null) {
-        setState(() {
-          _language = lang;
-          _digitalInkRecognizer.close();
-          _digitalInkRecognizer = DigitalInkRecognizer(languageCode: _language);
-        });
-      }
-    },
-    items: _languages.map<DropdownMenuItem<String>>((lang) {
-      return DropdownMenuItem<String>(value: lang, child: Text(lang));
-    }).toList(),
-  );
+        value: _language,
+        icon: const Icon(Icons.arrow_downward),
+        elevation: 16,
+        style: const TextStyle(color: Colors.blue),
+        underline: Container(height: 2, color: Colors.blue),
+        onChanged: (String? lang) {
+          if (lang != null) {
+            setState(() {
+              _language = lang;
+              _digitalInkRecognizer.close();
+              _digitalInkRecognizer =
+                  DigitalInkRecognizer(languageCode: _language);
+            });
+          }
+        },
+        items: _languages.map<DropdownMenuItem<String>>((lang) {
+          return DropdownMenuItem<String>(value: lang, child: Text(lang));
+        }).toList(),
+      );
 
   void _clearPad() {
     setState(() {

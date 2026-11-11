@@ -114,8 +114,7 @@ class TextRecognizerPainter extends CustomPainter {
                     rotation,
                     cameraLensDirection,
                   );
-                  y =
-                      size.height -
+                  y = size.height -
                       translateY(
                         point.x.toDouble(),
                         size,
@@ -136,8 +135,7 @@ class TextRecognizerPainter extends CustomPainter {
                   y = size.height - y;
                   break;
                 case InputImageRotation.rotation90deg:
-                  x =
-                      size.width -
+                  x = size.width -
                       translateX(
                         point.y.toDouble(),
                         size,
