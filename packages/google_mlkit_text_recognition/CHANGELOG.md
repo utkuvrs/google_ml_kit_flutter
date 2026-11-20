@@ -1,3 +1,9 @@
+## Unreleased
+
+* Feature: Add `TextRecognizer.enableIosConfidence` (default `false`). On iOS, `TextLine`/`TextElement` `confidence` is computed with Apple Vision, in the background and concurrently with ML Kit. Not calibrated like Android's ML Kit confidence.
+* Fix: Populate `TextLine`/`TextElement` `angle` on iOS.
+* Remove unused `ios/google_mlkit_text_recognition/Classes/GoogleMlKitTextRecognitionPlugin.swift` (SwiftPM builds only use `Sources/`).
+
 ## 1.0.3
 
 * Bump `google-mlkit-swiftpm` to `9.0.3` to resolve dependency conflicts with `firebase-ios-sdk` 13 (issue #919).

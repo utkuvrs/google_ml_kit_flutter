@@ -13,22 +13,39 @@ class TextRecognizer {
   /// Configurations for the language to be detected.
   final TextRecognitionScript script;
 
+  /// iOS only: compute [TextLine.confidence] and [TextElement.confidence] with Apple Vision.
+  ///
+  /// The ML Kit iOS SDK does not report confidence. When enabled, the plugin runs Apple Vision's text
+  /// recognizer on the same image, in the background and concurrently with ML Kit, and matches its results
+  /// to ML Kit's lines and elements. This costs a second on-device inference per call (CPU and energy),
+  /// so it is off by default.
+  ///
+  /// The values come from a different model than Android's ML Kit confidence and are not calibrated the
+  /// same way, so pick thresholds per platform. Confidence stays null when no Vision result matches,
+  /// and always for [TextRecognitionScript.devanagiri] (not supported by Apple Vision). Japanese and
+  /// Korean need iOS 16 or later.
+  ///
+  /// Ignored on Android, which always reports confidence.
+  final bool enableIosConfidence;
+
   /// Instance id.
   final id = DateTime.now().microsecondsSinceEpoch.toString();
 
   /// Constructor to create an instance of [TextRecognizer].
-  TextRecognizer({this.script = TextRecognitionScript.latin});
+  TextRecognizer({
+    this.script = TextRecognitionScript.latin,
+    this.enableIosConfidence = false,
+  });
 
   /// Processes the given [InputImage]  for text recognition and returns a [RecognizedText] object.
   Future<RecognizedText> processImage(InputImage inputImage) async {
-    final result = await _channel.invokeMethod(
-      'vision#startTextRecognizer',
-      <String, dynamic>{
-        'id': id,
-        'imageData': inputImage.toJson(),
-        'script': script.index,
-      },
-    );
+    final result = await _channel
+        .invokeMethod('vision#startTextRecognizer', <String, dynamic>{
+          'id': id,
+          'imageData': inputImage.toJson(),
+          'script': script.index,
+          'enableIosConfidence': enableIosConfidence,
+        });
     return RecognizedText.fromJson(result);
   }
 
@@ -129,12 +146,11 @@ class TextLine {
   /// The corner points of the text line in clockwise order starting with the top left point relative to the image in the default coordinate space.
   final List<Point<int>> cornerPoints;
 
-  // The confidence of the recognized line.
-  // Only available in Android, for iOS returns null.
+  /// The confidence of the recognized line.
+  /// On iOS, only set when [TextRecognizer.enableIosConfidence] is true (see there for caveats).
   final double? confidence;
 
-  // The angle of the rotation of the recognized line.
-  // Only available in Android, for iOS returns null.
+  /// The angle of the rotation of the recognized line, in degrees.
   final double? angle;
 
   /// Constructor to create an instance of [TextLine].
@@ -193,12 +209,11 @@ class TextElement {
   /// List of corner points of the text element in clockwise order starting with the top left point relative to the image in the default coordinate space.
   final List<Point<int>> cornerPoints;
 
-  // The confidence of the recognized element.
-  // Only available in Android, for iOS returns null.
+  /// The confidence of the recognized element.
+  /// On iOS, only set when [TextRecognizer.enableIosConfidence] is true (see there for caveats).
   final double? confidence;
 
-  // The angle of the rotation of the recognized element.
-  // Only available in Android, for iOS returns null.
+  /// The angle of the rotation of the recognized element, in degrees.
   final double? angle;
 
   /// Constructor to create an instance of [TextElement].

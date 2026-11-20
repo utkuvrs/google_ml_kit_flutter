@@ -122,5 +122,48 @@ Future<void> main() async {
         });
       },
     );
+
+    testWidgets(
+      'iOS confidence is opt-in via enableIosConfidence (text1.png)',
+      (tester) async {
+        await tester.runAsync(() async {
+          final image = await inputImageFromAsset('assets/images/text1.png');
+
+          List<TextLine> linesOf(RecognizedText text) => [
+            for (final block in text.blocks) ...block.lines,
+          ];
+
+          final plain = TextRecognizer();
+          final withConfidence = TextRecognizer(enableIosConfidence: true);
+          try {
+            final plainLines = linesOf(await plain.processImage(image));
+            final confidentLines = linesOf(
+              await withConfidence.processImage(image),
+            );
+            expect(plainLines, isNotEmpty);
+            expect(confidentLines, isNotEmpty);
+
+            // Angle is reported on both platforms regardless of the flag.
+            expect(plainLines.every((l) => l.angle != null), isTrue);
+
+            // Flag off: iOS reports no confidence.
+            expect(plainLines.every((l) => l.confidence == null), isTrue);
+
+            // Flag on: Apple Vision fills in confidence for matched lines.
+            final scores = confidentLines
+                .map((l) => l.confidence)
+                .whereType<double>()
+                .toList();
+            expect(scores, isNotEmpty);
+            expect(scores.every((c) => c >= 0 && c <= 1), isTrue);
+            debugPrint('iOS Vision line confidences: $scores');
+          } finally {
+            await plain.close();
+            await withConfidence.close();
+          }
+        });
+      },
+      skip: !Platform.isIOS,
+    );
   });
 }

@@ -2,11 +2,7 @@ import Flutter
 import MLKitVision
 import MLKitTextRecognition
 import MLKitTextRecognitionCommon
-import Vision
 import UIKit
-import CoreGraphics
-import CoreImage
-import CoreVideo
 #if canImport(MLKitTextRecognitionChinese)
 import MLKitTextRecognitionChinese
 #endif
@@ -23,6 +19,19 @@ import MLKitTextRecognitionKorean
 @objc
 public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
   private var instances: [String: TextRecognizer] = [:]
+
+  /// Serial background queue for the optional Apple Vision confidence pass, so it never runs on the
+  /// platform (main) thread and overlapping calls cannot pile up concurrent Vision requests.
+  private static let visionQueue = DispatchQueue(
+    label: "google_mlkit_text_recognition.vision",
+    qos: .userInitiated
+  )
+
+  /// Carries the Vision result from `visionQueue` to the main queue. The `DispatchGroup` used with it
+  /// orders the write (before `leave()`) before the read (inside `notify`).
+  private final class VisionResultBox {
+    var index: VisionConfidenceIndex?
+  }
 
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(
@@ -88,9 +97,37 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
       result(FlutterError(code: "invalid_args", message: "Missing arguments", details: nil))
       return
     }
-    guard let image = VisionImage.visionImage(from: imageData) else {
-      result(FlutterError(code: "invalid_image", message: "Invalid or missing image data", details: nil))
-      return
+    let enableConfidence = args["enableIosConfidence"] as? Bool ?? false
+    let scriptIndex = args["script"] as? Int ?? 0
+
+    let visionGroup = DispatchGroup()
+    let visionResult = VisionResultBox()
+    let image: VisionImage
+    if enableConfidence {
+      // One decode/render shared by ML Kit and Apple Vision.
+      guard let source = TextRecognitionSourceImage.make(from: imageData) else {
+        result(FlutterError(code: "invalid_image", message: "Invalid or missing image data", details: nil))
+        return
+      }
+      image = source.visionImage
+      let languages = VisionTextConfidence.languages(forScript: scriptIndex)
+      if !languages.isEmpty {
+        visionGroup.enter()
+        Self.visionQueue.async {
+          visionResult.index = VisionTextConfidence.recognize(
+            cgImage: source.cgImage,
+            orientation: source.orientation,
+            languages: languages
+          )
+          visionGroup.leave()
+        }
+      }
+    } else {
+      guard let plainImage = VisionImage.visionImage(from: imageData) else {
+        result(FlutterError(code: "invalid_image", message: "Invalid or missing image data", details: nil))
+        return
+      }
+      image = plainImage
     }
 
     let recognizer: TextRecognizer
@@ -101,68 +138,75 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
       instances[uid] = recognizer
     }
 
-    let visionConfidences = self.computeVisionConfidences(from: imageData)
-
+    // ML Kit runs concurrently with the Vision pass; results are joined on the main queue.
     recognizer.process(image) { visionText, error in
-      if let error = error as NSError? {
-        result(FlutterError(code: "Error \(error.code)", message: error.domain, details: error.localizedDescription))
-        return
-      }
-      guard let visionText = visionText else {
-        result(["text": "", "blocks": [] as [[String: Any]]])
-        return
-      }
-      var textBlocks: [[String: Any]] = []
-      for block in visionText.blocks {
-        var blockData = self.addData(
-          cornerPoints: block.cornerPoints,
-          frame: block.frame,
-          languages: block.recognizedLanguages,
-          text: block.text,
-          confidence: nil,
-          angle: nil
-        )
-        var textLines: [[String: Any]] = []
-        for line in block.lines {
-          var elementsData: [[String: Any]] = []
-          var elementConfidences: [Float] = []
-          for element in line.elements {
-            let elementConfidence = self.matchConfidence(
-              for: element.frame,
-              text: element.text,
-              in: visionConfidences
-            )
-            var elementData = self.addData(
-              cornerPoints: element.cornerPoints,
-              frame: element.frame,
-              languages: element.recognizedLanguages,
-              text: element.text,
-              confidence: elementConfidence.map { NSNumber(value: $0) },
-              angle: self.angle(from: element.cornerPoints)
-            )
-            elementData["symbols"] = [] as [[String: Any]]
-            elementsData.append(elementData)
-            if let c = elementConfidence { elementConfidences.append(c) }
-          }
-          let lineConfidence: NSNumber? = elementConfidences.isEmpty
-            ? self.matchConfidence(for: line.frame, text: line.text, in: visionConfidences).map { NSNumber(value: $0) }
-            : NSNumber(value: elementConfidences.reduce(0, +) / Float(elementConfidences.count))
-          var lineData = self.addData(
-            cornerPoints: line.cornerPoints,
-            frame: line.frame,
-            languages: line.recognizedLanguages,
-            text: line.text,
-            confidence: lineConfidence,
-            angle: self.angle(from: line.cornerPoints)
-          )
-          lineData["elements"] = elementsData
-          textLines.append(lineData)
+      visionGroup.notify(queue: .main) {
+        if let error = error as NSError? {
+          result(FlutterError(code: "Error \(error.code)", message: error.domain, details: error.localizedDescription))
+          return
         }
-        blockData["lines"] = textLines
-        textBlocks.append(blockData)
+        guard let visionText = visionText else {
+          result(["text": "", "blocks": [] as [[String: Any]]])
+          return
+        }
+        result(self.buildResult(visionText, confidenceIndex: visionResult.index))
       }
-      result(["text": visionText.text, "blocks": textBlocks])
     }
+  }
+
+  private func buildResult(_ visionText: Text, confidenceIndex: VisionConfidenceIndex?) -> [String: Any] {
+    var textBlocks: [[String: Any]] = []
+    for block in visionText.blocks {
+      var blockData = addData(
+        cornerPoints: block.cornerPoints,
+        frame: block.frame,
+        languages: block.recognizedLanguages,
+        text: block.text,
+        confidence: nil,
+        angle: nil
+      )
+      blockData["lines"] = block.lines.map { lineData(for: $0, confidenceIndex: confidenceIndex) }
+      textBlocks.append(blockData)
+    }
+    return ["text": visionText.text, "blocks": textBlocks]
+  }
+
+  private func lineData(for line: TextLine, confidenceIndex: VisionConfidenceIndex?) -> [String: Any] {
+    var elementsData: [[String: Any]] = []
+    var elementConfidences: [Float] = []
+    for element in line.elements {
+      let elementConfidence = confidenceIndex?.confidence(for: element.frame, text: element.text)
+      var elementData = addData(
+        cornerPoints: element.cornerPoints,
+        frame: element.frame,
+        languages: element.recognizedLanguages,
+        text: element.text,
+        confidence: elementConfidence.map { NSNumber(value: $0) },
+        angle: angle(from: element.cornerPoints)
+      )
+      elementData["symbols"] = [] as [[String: Any]]
+      elementsData.append(elementData)
+      if let confidence = elementConfidence {
+        elementConfidences.append(confidence)
+      }
+    }
+    // Line confidence is the mean of its matched elements; fall back to matching the whole line.
+    let lineConfidence: Float?
+    if elementConfidences.isEmpty {
+      lineConfidence = confidenceIndex?.confidence(for: line.frame, text: line.text)
+    } else {
+      lineConfidence = elementConfidences.reduce(0, +) / Float(elementConfidences.count)
+    }
+    var data = addData(
+      cornerPoints: line.cornerPoints,
+      frame: line.frame,
+      languages: line.recognizedLanguages,
+      text: line.text,
+      confidence: lineConfidence.map { NSNumber(value: $0) },
+      angle: angle(from: line.cornerPoints)
+    )
+    data["elements"] = elementsData
+    return data
   }
 
   private func addData(
@@ -193,228 +237,13 @@ public class GoogleMlKitTextRecognitionPlugin: NSObject, FlutterPlugin {
     ]
   }
 
-  /// Derives rotation angle in degrees from the top-left → top-right corner vector.
-  /// MLKit returns cornerPoints clockwise starting top-left, so index 0→1 spans the top edge.
+  /// Rotation angle in degrees from the top-left → top-right corner vector.
+  /// ML Kit returns corner points clockwise starting top-left, so index 0→1 spans the top edge.
   private func angle(from cornerPoints: [NSValue]) -> NSNumber? {
     guard cornerPoints.count >= 2 else { return nil }
-    let p0 = cornerPoints[0].cgPointValue
-    let p1 = cornerPoints[1].cgPointValue
-    let radians = atan2(p1.y - p0.y, p1.x - p0.x)
+    let topLeft = cornerPoints[0].cgPointValue
+    let topRight = cornerPoints[1].cgPointValue
+    let radians = atan2(topRight.y - topLeft.y, topRight.x - topLeft.x)
     return NSNumber(value: Double(radians) * 180.0 / .pi)
   }
-
-  // MARK: - Apple Vision confidence pass
-
-  private struct VisionConfidenceRect {
-    let rect: CGRect
-    let confidence: Float
-    let text: String
-  }
-
-  /// Runs Apple's VNRecognizeTextRequest on the same image and returns observations
-  /// in MLKit's pixel/top-left coordinate space so they can be matched by IoU.
-  /// Returns empty array on failure — confidence stays nil, behavior degrades to pre-fork state.
-  private func computeVisionConfidences(from imageData: [String: Any]) -> [VisionConfidenceRect] {
-    guard let source = Self.sourceImage(from: imageData) else { return [] }
-    let cgImage = source.cgImage
-    let request = VNRecognizeTextRequest()
-    request.recognitionLevel = .accurate
-    request.usesLanguageCorrection = false
-    // Feed Vision the same orientation MLKit applied so observation boxes land in
-    // MLKit's (upright/oriented) coordinate space. A mismatch here zeroes out IoU.
-    let handler = VNImageRequestHandler(cgImage: cgImage, orientation: source.orientation, options: [:])
-    do {
-      try handler.perform([request])
-    } catch {
-      return []
-    }
-    guard let observations = request.results else { return [] }
-    // After orientation correction Vision reports coords in the upright image, whose
-    // width/height are swapped for the 90°/270° (.left/.right) families.
-    let swapsAxes = source.orientation == .left || source.orientation == .right
-      || source.orientation == .leftMirrored || source.orientation == .rightMirrored
-    let width = CGFloat(swapsAxes ? cgImage.height : cgImage.width)
-    let height = CGFloat(swapsAxes ? cgImage.width : cgImage.height)
-    return observations.compactMap { obs in
-      let bbox = obs.boundingBox  // normalized, bottom-left origin
-      let pixelRect = CGRect(
-        x: bbox.minX * width,
-        y: (1.0 - bbox.maxY) * height,
-        width: bbox.width * width,
-        height: bbox.height * height
-      )
-      let candidate = obs.topCandidates(1).first
-      let confidence = candidate?.confidence ?? obs.confidence
-      return VisionConfidenceRect(rect: pixelRect, confidence: confidence, text: candidate?.string ?? "")
-    }
-  }
-
-  /// Finds the best Vision observation for an MLKit element/line frame.
-  ///
-  /// Geometry score is max(IoU, containment): containment (intersection / smaller area) rescues
-  /// the word-vs-line size mismatch, where an MLKit word box sits fully inside a wider Vision line
-  /// box and would otherwise score a low IoU. A letter-agreement bonus lets a match whose text
-  /// matches win over a purely geometric one. Returns nil when nothing clears the thresholds.
-  private func matchConfidence(for frame: CGRect, text: String, in rects: [VisionConfidenceRect]) -> Float? {
-    guard !rects.isEmpty, frame.width > 0, frame.height > 0 else { return nil }
-    let frameArea = frame.width * frame.height
-    var bestScore: CGFloat = 0
-    var bestConfidence: Float? = nil
-    var bestGeom: CGFloat = 0
-    var bestTextMatch = false
-    for entry in rects {
-      let intersection = frame.intersection(entry.rect)
-      if intersection.isNull || intersection.isEmpty { continue }
-      let interArea = intersection.width * intersection.height
-      let rectArea = entry.rect.width * entry.rect.height
-      let unionArea = frameArea + rectArea - interArea
-      let iou = unionArea > 0 ? interArea / unionArea : 0
-      let minArea = min(frameArea, rectArea)
-      let containment = minArea > 0 ? interArea / minArea : 0
-      let geom = max(iou, containment)
-      let textMatch = textsAgree(text, entry.text)
-      let score = geom + (textMatch ? 1.0 : 0.0)
-      if score > bestScore {
-        bestScore = score
-        bestConfidence = entry.confidence
-        bestGeom = geom
-        bestTextMatch = textMatch
-      }
-    }
-    // Accept when letters agree with any real overlap, or geometry alone is strong.
-    if bestTextMatch && bestGeom >= 0.1 { return bestConfidence }
-    if bestGeom >= 0.3 { return bestConfidence }
-    return nil
-  }
-
-  /// True when one normalized string contains the other — handles MLKit's word-level text
-  /// sitting inside Vision's line-level candidate (and vice versa).
-  private func textsAgree(_ a: String, _ b: String) -> Bool {
-    let na = normalizedText(a)
-    let nb = normalizedText(b)
-    guard !na.isEmpty, !nb.isEmpty else { return false }
-    return na.contains(nb) || nb.contains(na)
-  }
-
-  /// Lowercase and strip everything but letters/digits so spacing and punctuation
-  /// differences between the two engines don't break the comparison.
-  private func normalizedText(_ s: String) -> String {
-    let scalars = s.lowercased().unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }
-    return String(String.UnicodeScalarView(scalars))
-  }
-
-  // MARK: - CGImage extraction from imageData
-
-  /// The pixels MLKit consumed plus the orientation MLKit applied to them.
-  private struct SourceImage {
-    let cgImage: CGImage
-    let orientation: CGImagePropertyOrientation
-  }
-
-  /// Mirrors VisionImage.visionImage(from:) but exposes the underlying CGImage and the
-  /// orientation so Apple Vision can process the same pixels in the same coordinate space.
-  /// - file: UIImage carries EXIF orientation and MLKit honors it, so Vision must too.
-  /// - bytes/bitmap: commons builds an upright VisionImage and ignores rotation metadata,
-  ///   so the matching upright (.up) keeps both engines aligned.
-  private static func sourceImage(from imageData: [String: Any]) -> SourceImage? {
-    guard let imageType = imageData["type"] as? String else { return nil }
-    switch imageType {
-    case "file":
-      guard let path = imageData["path"] as? String,
-            let ui = UIImage(contentsOfFile: path),
-            let cg = ui.cgImage else { return nil }
-      return SourceImage(cgImage: cg, orientation: cgOrientation(ui.imageOrientation))
-    case "bytes":
-      guard let cg = cgImageFromBytes(imageData) else { return nil }
-      return SourceImage(cgImage: cg, orientation: .up)
-    case "bitmap":
-      guard let cg = cgImageFromBitmap(imageData) else { return nil }
-      return SourceImage(cgImage: cg, orientation: .up)
-    default:
-      return nil
-    }
-  }
-
-  /// UIImage.Orientation and CGImagePropertyOrientation have different raw values; map explicitly.
-  private static func cgOrientation(_ orientation: UIImage.Orientation) -> CGImagePropertyOrientation {
-    switch orientation {
-    case .up: return .up
-    case .down: return .down
-    case .left: return .left
-    case .right: return .right
-    case .upMirrored: return .upMirrored
-    case .downMirrored: return .downMirrored
-    case .leftMirrored: return .leftMirrored
-    case .rightMirrored: return .rightMirrored
-    @unknown default: return .up
-    }
-  }
-
-  private static func cgImageFromBytes(_ imageData: [String: Any]) -> CGImage? {
-    guard let byteData = imageData["bytes"] as? FlutterStandardTypedData,
-          let metadata = imageData["metadata"] as? [String: Any],
-          let width = metadata["width"] as? NSNumber,
-          let height = metadata["height"] as? NSNumber,
-          let rawFormat = metadata["image_format"] as? NSNumber,
-          let bytesPerRow = metadata["bytes_per_row"] as? NSNumber else {
-      return nil
-    }
-    let w = Int(truncating: width)
-    let h = Int(truncating: height)
-    let bpr = Int(truncating: bytesPerRow)
-    let format = OSType(truncating: rawFormat)
-    let bufferSize = bpr * h
-    guard bufferSize > 0, byteData.data.count >= bufferSize else { return nil }
-
-    let copy = UnsafeMutableRawPointer.allocate(byteCount: bufferSize, alignment: 1)
-    let buf = UnsafeMutableBufferPointer(start: copy.assumingMemoryBound(to: UInt8.self), count: bufferSize)
-    byteData.data.copyBytes(to: buf)
-
-    var pxBuffer: CVPixelBuffer?
-    let status = CVPixelBufferCreateWithBytes(
-      kCFAllocatorDefault,
-      w, h, format,
-      copy, bpr,
-      { _, baseAddress in
-        guard let baseAddress = baseAddress else { return }
-        UnsafeMutableRawPointer(mutating: baseAddress).deallocate()
-      },
-      nil, nil, &pxBuffer
-    )
-    guard status == kCVReturnSuccess, let buffer = pxBuffer else {
-      copy.deallocate()
-      return nil
-    }
-    let ciImage = CIImage(cvPixelBuffer: buffer)
-    let context = CIContext(options: nil)
-    return context.createCGImage(ciImage, from: CGRect(x: 0, y: 0, width: w, height: h))
-  }
-
-  private static func cgImageFromBitmap(_ imageDict: [String: Any]) -> CGImage? {
-    guard let bitmapData = imageDict["bitmapData"] as? FlutterStandardTypedData else { return nil }
-    if let metadata = imageDict["metadata"] as? [String: Any],
-       let width = metadata["width"] as? NSNumber,
-       let height = metadata["height"] as? NSNumber {
-      let colorSpace = CGColorSpaceCreateDeviceRGB()
-      let bytesPerPixel = 4
-      let bpr = bytesPerPixel * width.intValue
-      var result: CGImage?
-      bitmapData.data.withUnsafeBytes { raw in
-        guard let base = raw.baseAddress?.assumingMemoryBound(to: UInt8.self) else { return }
-        guard let ctx = CGContext(
-          data: UnsafeMutableRawPointer(mutating: base),
-          width: width.intValue,
-          height: height.intValue,
-          bitsPerComponent: 8,
-          bytesPerRow: bpr,
-          space: colorSpace,
-          bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue | CGBitmapInfo.byteOrder32Big.rawValue
-        ) else { return }
-        result = ctx.makeImage()
-      }
-      if let result = result { return result }
-    }
-    return UIImage(data: bitmapData.data)?.cgImage
-  }
 }
-

@@ -111,6 +111,19 @@ final InputImage inputImage;
 final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
 ```
 
+The ML Kit iOS SDK does not report line/element confidence. To get it on iOS, opt in with `enableIosConfidence`:
+
+```dart
+final textRecognizer = TextRecognizer(enableIosConfidence: true);
+```
+
+The plugin then runs Apple Vision's text recognizer on the same image, in the background and concurrently with ML Kit, and matches its results to ML Kit's lines and elements. Keep in mind:
+
+- It costs a second on-device inference per call (CPU and battery), so it is off by default.
+- The values come from Apple's model, not ML Kit's, so they are not calibrated like the Android values. Choose confidence thresholds per platform.
+- Confidence is `null` when no Vision result matches, and always for `devanagiri` (not supported by Apple Vision). `japanese` and `korean` need iOS 16 or later.
+- The flag is ignored on Android, which always reports confidence.
+
 #### Process image
 
 ```dart
@@ -124,7 +137,8 @@ for (TextBlock block in recognizedText.blocks) {
   final List<String> languages = block.recognizedLanguages;
 
   for (TextLine line in block.lines) {
-    // Same getters as TextBlock, plus confidence and angle (Android only; null on iOS)
+    // Same getters as TextBlock, plus confidence and angle
+    // (iOS: confidence requires enableIosConfidence: true)
     final double? confidence = line.confidence;
     final double? angle = line.angle;
     for (TextElement element in line.elements) {
